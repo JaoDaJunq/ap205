@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <title>Ap 205 — Uma aventura nossa</title>
+  <meta
+    name="description"
+    content="Um jogo point-and-click feito como presente, com memórias, fragmentos e uma carta final."
+  />
+
+  <!-- PWA / iPhone -->
+  <meta name="theme-color" content="#251626" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Ap 205" />
+
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="apple-touch-icon" href="./assets/icons/icon-192.png" />
+
+  <!-- Open Graph básico -->
+  <meta property="og:title" content="Ap 205 — Uma aventura nossa" />
+  <meta
+    property="og:description"
+    content="Um presente em forma de jogo, feito para guardar memórias especiais."
+  />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <noscript>
+    <div class="noscript-message">
+      Este jogo precisa de JavaScript ativado para funcionar.
+    </div>
+  </noscript>
+
+  <div id="orientation-lock-message" class="orientation-lock-message" aria-hidden="true">
+    <div class="orientation-card">
+      <div class="orientation-icon">📱</div>
+      <h2>Vira o celular de volta</h2>
+      <p>Esse presente foi feito para jogar em pé, no modo retrato.</p>
+    </div>
+  </div>
+
+  <main id="app" class="app-shell" aria-live="polite">
+    <!-- TELA INICIAL -->
+    <section id="screen-start" class="screen screen-start is-active" data-screen="start">
+      <div class="screen-inner start-inner">
+        <div class="floating-hearts" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <p class="eyebrow">um presente em forma de jogo</p>
+
+        <h1 id="start-title" class="game-title" tabindex="0">
+          Ap 205
+        </h1>
+
+        <p class="game-subtitle">
+          Uma aventura point-and-click sobre a gente, nossas memórias e os pequenos detalhes que viraram história.
+        </p>
+
+        <div class="start-actions">
+          <button id="btn-start-game" class="primary-button" type="button">
+            Começar
+          </button>
+
+          <button id="btn-continue-game" class="ghost-button" type="button">
+            Continuar
+          </button>
+        </div>
+
+        <p class="install-hint">
+          Dica: no iPhone, abra no Safari e toque em “Adicionar à Tela de Início”.
+        </p>
+
+        <p id="reset-hint" class="reset-hint" aria-live="polite">
+          Segure o título por alguns segundos para resetar o progresso.
+        </p>
+      </div>
+    </section>
+
+    <!-- MAPA / SELEÇÃO DE FASES -->
+    <section id="screen-map" class="screen screen-map" data-screen="map" aria-labelledby="map-title">
+      <div class="screen-inner">
+        <header class="top-bar">
+          <div>
+            <p class="eyebrow">mapa de memórias</p>
+            <h2 id="map-title">Escolha uma fase</h2>
+          </div>
+
+          <button id="btn-map-audio" class="icon-button" type="button" aria-label="Ligar ou desligar música">
+            ♪
+          </button>
+        </header>
+
+        <div id="progress-summary" class="progress-summary">
+          <div>
+            <span id="completed-count">0</span>
+            <small>fases completas</small>
+          </div>
+
+          <div>
+            <span id="fragment-count">0/4</span>
+            <small>fragmentos</small>
+          </div>
+        </div>
+
+        <div id="phase-list" class="phase-list" aria-label="Lista de fases">
+          <!-- Renderizado via JavaScript -->
+        </div>
+
+        <section class="fragment-tray" aria-labelledby="fragment-tray-title">
+          <div class="section-heading">
+            <p class="eyebrow">imagem final</p>
+            <h3 id="fragment-tray-title">Fragmentos encontrados</h3>
+          </div>
+
+          <div id="fragment-preview-grid" class="fragment-preview-grid">
+            <!-- Renderizado via JavaScript -->
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- FASE -->
+    <section id="screen-phase" class="screen screen-phase" data-screen="phase" aria-labelledby="phase-title">
+      <div class="screen-inner phase-inner">
+        <header class="phase-header">
+          <button id="btn-back-to-map" class="icon-button" type="button" aria-label="Voltar para o mapa">
+            ←
+          </button>
+
+          <div class="phase-title-wrap">
+            <p id="phase-kicker" class="eyebrow">fase</p>
+            <h2 id="phase-title">Título da fase</h2>
+          </div>
+
+          <button id="btn-phase-audio" class="icon-button" type="button" aria-label="Ligar ou desligar música">
+            ♪
+          </button>
+        </header>
+
+        <div id="phase-objective" class="phase-objective">
+          Toque nos detalhes da cena para revelar memórias.
+        </div>
+
+        <div id="scene-stage" class="scene-stage" aria-label="Cena interativa da fase">
+          <!-- Cenário, personagens e objetos clicáveis renderizados via JavaScript -->
+        </div>
+
+        <div id="required-progress" class="required-progress" aria-live="polite">
+          <!-- Progresso dos objetos obrigatórios -->
+        </div>
+
+        <button id="btn-complete-phase" class="primary-button complete-phase-button" type="button" hidden>
+          Guardar essa memória
+        </button>
+      </div>
+    </section>
+
+    <!-- FRAGMENTO DESBLOQUEADO -->
+    <section
+      id="screen-fragment"
+      class="screen screen-fragment"
+      data-screen="fragment"
+      aria-labelledby="fragment-title"
+    >
+      <div class="screen-inner fragment-inner">
+        <p class="eyebrow">memória guardada</p>
+
+        <h2 id="fragment-title">Fragmento desbloqueado</h2>
+
+        <p id="fragment-description" class="fragment-description">
+          Você encontrou mais um pedaço dessa história.
+        </p>
+
+        <div id="fragment-reveal-card" class="fragment-reveal-card">
+          <!-- Fragmento renderizado via JavaScript -->
+        </div>
+
+        <button id="btn-return-map-after-fragment" class="primary-button" type="button">
+          Voltar ao mapa
+        </button>
+      </div>
+    </section>
+
+    <!-- CARTA FINAL / FASE 5 -->
+    <section
+      id="screen-final"
+      class="screen screen-final"
+      data-screen="final"
+      aria-labelledby="final-title"
+    >
+      <div class="screen-inner final-inner">
+        <p class="eyebrow">todos os fragmentos reunidos</p>
+
+        <h2 id="final-title">A nossa imagem completa</h2>
+
+        <div id="final-fragment-composition" class="final-fragment-composition">
+          <!-- Fragmentos reunidos via JavaScript -->
+        </div>
+
+        <article class="final-letter">
+          <h3>Pra você</h3>
+
+          <div id="final-letter-content">
+            <!-- Texto final editável em data/phase-5.js -->
+          </div>
+        </article>
+
+        <button id="btn-final-back-map" class="ghost-button" type="button">
+          Voltar ao mapa
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL DE MEMÓRIA / DIÁLOGO -->
+  <div id="memory-modal" class="memory-modal" role="dialog" aria-modal="true" aria-labelledby="memory-modal-title" hidden>
+    <div class="memory-backdrop" data-close-memory></div>
+
+    <div class="memory-card">
+      <header class="memory-card-header">
+        <div>
+          <p id="memory-modal-kicker" class="eyebrow">memória</p>
+          <h2 id="memory-modal-title">Título da memória</h2>
+        </div>
+
+        <button
+          id="btn-close-memory"
+          class="icon-button"
+          type="button"
+          aria-label="Fechar memória"
+          data-close-memory
+        >
+          ×
+        </button>
+      </header>
+
+      <div id="memory-modal-body" class="memory-modal-body">
+        <!-- Conteúdo renderizado via JavaScript -->
+      </div>
+
+      <footer class="memory-card-footer">
+        <button id="btn-next-dialogue" class="primary-button" type="button" hidden>
+          Continuar
+        </button>
+
+        <button id="btn-finish-memory" class="primary-button" type="button">
+          Guardar
+        </button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- CONFIRMAÇÃO DE RESET ESCONDIDO -->
+  <div id="reset-modal" class="memory-modal" role="dialog" aria-modal="true" aria-labelledby="reset-modal-title" hidden>
+    <div class="memory-backdrop" data-close-reset></div>
+
+    <div class="memory-card small-card">
+      <header class="memory-card-header">
+        <div>
+          <p class="eyebrow">modo teste</p>
+          <h2 id="reset-modal-title">Resetar progresso?</h2>
+        </div>
+
+        <button
+          id="btn-close-reset"
+          class="icon-button"
+          type="button"
+          aria-label="Fechar aviso de reset"
+          data-close-reset
+        >
+          ×
+        </button>
+      </header>
+
+      <div class="memory-modal-body">
+        <p>
+          Isso apaga as fases concluídas, memórias vistas e fragmentos desbloqueados neste aparelho.
+        </p>
+      </div>
+
+      <footer class="memory-card-footer two-actions">
+        <button id="btn-cancel-reset" class="ghost-button" type="button" data-close-reset>
+          Cancelar
+        </button>
+
+        <button id="btn-confirm-reset" class="danger-button" type="button">
+          Resetar
+        </button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- AVISO DE ÁUDIO -->
+  <div id="audio-consent" class="audio-consent" hidden>
+    <div>
+      <strong>Música ambiente</strong>
+      <span>Toque para ativar o som dessa memória.</span>
+    </div>
+
+    <button id="btn-enable-audio" class="small-button" type="button">
+      Ativar
+    </button>
+  </div>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
