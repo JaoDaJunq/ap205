@@ -3,26 +3,189 @@ export const PHASE_2 = {
   order: 2,
   name: "Domingos",
   description: "Sofá, série na TV, rotina aconchegante e o Aspen por perto.",
-  available: false,
+  available: true,
   isFinal: false,
 
   objective:
-    "Estrutura reservada para a Fase 2. Preencher objetos, memórias e fragmento depois.",
+    "Toque nos detalhes da cena. Para guardar essa memória, veja a TV, o Sofá e o Aspen.",
 
-  sceneClass: "",
+  sceneClass: "scene-domingos",
+
   audio: {
     src: "./assets/audio/fase-2.mp3",
-    label: "Música aconchegante de domingo",
+    label: "Lo-fi aconchegante de tarde",
   },
 
-  sceneElements: [],
-  characters: [],
-  objects: [],
+  sceneElements: [
+    {
+      id: "warm-light",
+      className: "domingos-warm-light",
+      label: "Luz quente de domingo",
+    },
+    {
+      id: "window",
+      className: "domingos-window",
+      label: "Janela com chuva lá fora",
+    },
+    {
+      id: "tv",
+      className: "domingos-tv",
+      label: "TV ligada",
+    },
+    {
+      id: "tv-stand",
+      className: "domingos-tv-stand",
+      label: "Rack da TV",
+    },
+    {
+      id: "sofa",
+      className: "domingos-sofa",
+      label: "Sofá grande",
+    },
+    {
+      id: "pillow-left",
+      className: "domingos-pillow domingos-pillow-left",
+      label: "Almofada",
+    },
+    {
+      id: "pillow-right",
+      className: "domingos-pillow domingos-pillow-right",
+      label: "Almofada",
+    },
+    {
+      id: "rug",
+      className: "domingos-rug",
+      label: "Tapete",
+    },
+    {
+      id: "aspen-perch",
+      className: "domingos-aspen-perch",
+      label: "Poleiro do Aspen",
+    },
+    {
+      id: "aspen",
+      className: "domingos-aspen",
+      label: "Aspen",
+    },
+    {
+      id: "rain",
+      className: "domingos-rain",
+      label: "Chuva na janela",
+    },
+  ],
+
+  characters: [
+    {
+      id: "joao",
+      variant: "idle",
+      x: 37,
+      y: 57,
+    },
+    {
+      id: "alice",
+      variant: "idle",
+      x: 56,
+      y: 57,
+    },
+  ],
+
+  objects: [
+    {
+      id: "tv",
+      label: "A TV",
+      required: true,
+      position: {
+        x: 27,
+        y: 17,
+        width: 47,
+        height: 25,
+      },
+      memory: {
+        type: "narration",
+        title: "A TV",
+        text:
+          "Ginny & Georgia, Emily in Paris... ela escolhia, eu assistia fingindo reclamar. Mas ficava até o fim sempre.",
+      },
+    },
+    {
+      id: "sofa",
+      label: "O Sofá",
+      required: true,
+      position: {
+        x: 13,
+        y: 57,
+        width: 70,
+        height: 25,
+      },
+      memory: {
+        type: "narration",
+        title: "O Sofá",
+        text:
+          "Sonequinha de domingo. Ela dormia primeiro, sempre. E eu ficava ali quieto com medo de acordar ela.",
+      },
+    },
+    {
+      id: "aspen",
+      label: "O Aspen",
+      required: true,
+      position: {
+        x: 75,
+        y: 42,
+        width: 20,
+        height: 25,
+      },
+      memory: {
+        type: "dialogue",
+        title: "O Aspen",
+        lines: [
+          {
+            speaker: "Alice",
+            text: "Ele tá te olhando",
+          },
+          {
+            speaker: "João",
+            text: "Ele não gosta de mim",
+          },
+          {
+            speaker: "Alice",
+            text: "Ele gosta sim, ele só é assim",
+          },
+          {
+            speaker: "João",
+            text: "Ele tá me julgando",
+          },
+          {
+            speaker: "Alice",
+            text: "KAKAKAK para",
+          },
+        ],
+        conclusion: "O Aspen nunca me julgou. Acho.",
+      },
+    },
+    {
+      id: "janela",
+      label: "A Janela",
+      required: false,
+      position: {
+        x: 6,
+        y: 18,
+        width: 23,
+        height: 26,
+      },
+      memory: {
+        type: "narration",
+        title: "A Janela",
+        text:
+          "Tarde de domingo, chuva lá fora, ela do lado. Não precisava de mais nada.",
+      },
+    },
+  ],
 
   fragment: {
     id: "fragment-2",
     index: 1,
     title: "Fragmento 2 de 4",
-    description: "Placeholder do segundo fragmento.",
+    description:
+      "Mais um pedaço da história. Os domingos que viraram lar.",
   },
 };
