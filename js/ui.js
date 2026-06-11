@@ -312,11 +312,44 @@ function renderFinalScreen() {
     return;
   }
 
+  currentPhase = finalPhase;
+
   renderFragmentsGrid(dom.finalFragmentComposition);
 
-  dom.finalLetterContent.innerHTML = (finalPhase.letter || [])
-    .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
-    .join("");
+  const letter = finalPhase.letter;
+  let letterHtml = "";
+
+  if (Array.isArray(letter)) {
+    letterHtml = letter
+      .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
+      .join("");
+  } else if (letter && typeof letter === "object") {
+    const title = letter.title ? `<h3>${escapeHtml(letter.title)}</h3>` : "";
+    const paragraphs = Array.isArray(letter.paragraphs)
+      ? letter.paragraphs
+      : [];
+
+    letterHtml = [
+      title,
+      ...paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`),
+    ].join("");
+  }
+
+  const musicButtonHtml = finalPhase.musicUrl
+    ? `
+      <a
+        class="primary-button final-music-button"
+        href="${escapeHtml(finalPhase.musicUrl)}"
+        target="_blank"
+        rel="noopener noreferrer"
+        style="display: flex; align-items: center; justify-content: center; text-decoration: none; margin-top: 18px;"
+      >
+        🎵 Ouvir a música
+      </a>
+    `
+    : "";
+
+  dom.finalLetterContent.innerHTML = `${letterHtml}${musicButtonHtml}`;
 
   deps.Audio.setTrack(finalPhase.audio?.src || "");
   setAudioButtonsState();
