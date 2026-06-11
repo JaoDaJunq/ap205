@@ -7,6 +7,9 @@ let currentMemoryObject = null;
 let currentDialogueIndex = 0;
 let resetTimer = null;
 let typewriterRunId = 0;
+let introTimer = null;
+let introHideTimer = null;
+let hasHandledIntro = false;
 
 const dom = {};
 
@@ -15,6 +18,8 @@ function qs(selector) {
 }
 
 function cacheDom() {
+  dom.screenIntro = qs("#screen-intro");
+  
   dom.startTitle = qs("#start-title");
   dom.btnStartGame = qs("#btn-start-game");
   dom.btnContinueGame = qs("#btn-continue-game");
