@@ -201,6 +201,156 @@ h3 {
   background: var(--primary);
   color: #3a1c12;
 }
+/* Tela de abertura animada */
+
+.intro-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 80;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: calc(24px + var(--safe-top)) 18px calc(24px + var(--safe-bottom));
+  background:
+    radial-gradient(circle at 50% 28%, rgba(255, 227, 166, 0.34), transparent 34%),
+    radial-gradient(circle at 25% 18%, rgba(255, 122, 158, 0.22), transparent 30%),
+    radial-gradient(circle at 82% 22%, rgba(255, 184, 107, 0.2), transparent 32%),
+    linear-gradient(180deg, #2c1830 0%, #160d18 100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.85s ease;
+}
+
+.intro-screen[hidden] {
+  display: none;
+}
+
+.intro-screen.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.intro-screen.is-leaving {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro-glow {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 248, 237, 0.2), transparent 68%);
+  filter: blur(8px);
+  animation: introGlowPulse 2.8s ease-in-out infinite;
+}
+
+.intro-characters {
+  position: absolute;
+  left: 50%;
+  top: 41%;
+  width: min(310px, 78vw);
+  height: 210px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.intro-character {
+  position: absolute;
+  bottom: 0;
+  width: 44%;
+  height: 190px;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.24));
+  opacity: 0;
+  animation: introCharacterIn 0.9s ease forwards;
+}
+
+.intro-character-joao {
+  left: 6%;
+  animation-delay: 0.18s;
+}
+
+.intro-character-alice {
+  right: 6%;
+  animation-delay: 0.34s;
+}
+
+.intro-copy {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin-top: 270px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: introTextIn 1s ease 0.72s forwards;
+}
+
+.intro-eyebrow {
+  margin: 0 0 8px;
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.intro-copy h1 {
+  margin: 0;
+  color: var(--cream);
+  font-size: clamp(2.9rem, 14vw, 4.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  text-shadow: 0 18px 42px rgba(0, 0, 0, 0.34);
+}
+
+.intro-copy p:last-child {
+  margin: 14px 0 0;
+  color: rgba(255, 248, 237, 0.74);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+@keyframes introTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes introCharacterIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes introGlowPulse {
+  0%,
+  100% {
+    transform: scale(0.96);
+    opacity: 0.72;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
 
 /* Tela inicial */
 
