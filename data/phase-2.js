@@ -1,110 +1,115 @@
-export const PHASE_2 = {
-  id: "phase-2",
-  order: 2,
-  name: "Domingos",
-  description: "Sofá, série na TV, rotina aconchegante e o Aspen por perto.",
+export const PHASE_1 = {
+  id: "phase-1",
+  order: 1,
+  name: "A Primeira Noite",
+  description: "O Ap 205, uma noite quente, uma brincadeira idiota e o começo de tudo.",
   available: true,
   isFinal: false,
 
   objective:
-    "Toque nos detalhes da cena. Para guardar essa memória, veja a TV, o Sofá e o Aspen.",
+    "Toque nos detalhes da cena. Para guardar essa memória, veja a Porta, o Sofá e o Thomas.",
 
-  sceneClass: "scene-domingos",
+  sceneClass: "scene-ap-205",
 
   audio: {
-    src: "./assets/audio/fase-2.mp3",
-    label: "Lo-fi aconchegante de tarde",
+    src: "./assets/audio/fase-1.mp3",
+    label: "Lo-fi noturno suave",
   },
 
   sceneElements: [
     {
-      id: "warm-light",
-      className: "domingos-warm-light",
-      label: "Luz quente de domingo",
-    },
-    {
-      id: "window",
-      className: "domingos-window",
-      label: "Janela com chuva lá fora",
-    },
-    {
-      id: "tv",
-      className: "domingos-tv",
-      label: "TV ligada",
-    },
-    {
-      id: "tv-stand",
-      className: "domingos-tv-stand",
-      label: "Rack da TV",
-    },
-    {
-      id: "sofa",
-      className: "domingos-sofa",
-      label: "Sofá grande",
-    },
-    {
-      id: "pillow-left",
-      className: "domingos-pillow domingos-pillow-left",
-      label: "Almofada",
-    },
-    {
-      id: "pillow-right",
-      className: "domingos-pillow domingos-pillow-right",
-      label: "Almofada",
-    },
-    {
       id: "rug",
-      className: "domingos-rug",
+      className: "ap-rug",
       label: "Tapete",
     },
     {
-      id: "aspen-perch",
-      className: "domingos-aspen-perch",
-      label: "Poleiro do Aspen",
+      id: "door",
+      className: "ap-door",
+      label: "Porta de entrada",
     },
     {
-      id: "aspen",
-      className: "domingos-aspen",
-      label: "Aspen",
+      id: "window",
+      className: "ap-window",
+      label: "Janela com a noite lá fora",
     },
     {
-      id: "rain",
-      className: "domingos-rain",
-      label: "Chuva na janela",
+      id: "sofa",
+      className: "ap-sofa",
+      label: "Sofá",
+    },
+    {
+      id: "table",
+      className: "ap-table",
+      label: "Mesinha",
+    },
+    {
+      id: "thomas",
+      className: "npc-thomas",
+      label: "Thomas",
     },
   ],
 
   characters: [
     {
       id: "joao",
-      variant: "idle",
-      x: 37,
-      y: 57,
+      variant: "happy",
+      x: 38,
+      y: 54,
     },
     {
       id: "alice",
-      variant: "idle",
-      x: 56,
-      y: 57,
+      variant: "happy",
+      x: 58,
+      y: 54,
     },
   ],
 
   objects: [
     {
-      id: "tv",
-      label: "A TV",
+      id: "porta",
+      label: "A Porta",
       required: true,
       position: {
-        x: 27,
-        y: 17,
-        width: 47,
-        height: 25,
+        x: 5,
+        y: 20,
+        width: 26,
+        height: 54,
       },
       memory: {
-        type: "narration",
-        title: "A TV",
-        text:
-          "Ginny & Georgia, Emily in Paris... ela escolhia, eu assistia fingindo reclamar. Mas ficava até o fim sempre.",
+        type: "dialogue",
+        title: "A Porta",
+        lines: [
+          {
+            speaker: "João",
+            text: "Oiii",
+          },
+          {
+            speaker: "Alice",
+            text: "Qual o número do ap mesmo?",
+          },
+          {
+            speaker: "João",
+            text: "205",
+          },
+          {
+            speaker: "Alice",
+            text: "Segundo andarrr",
+          },
+          {
+            speaker: "João",
+            text: "chega 4 horas depois: Abre",
+          },
+          {
+            speaker: "Alice",
+            text: "OXX KAKAKAKAK",
+          },
+          {
+            speaker: "João",
+            text: "Tô brincando kkkkk bocó",
+          },
+        ],
+        conclusion:
+          "Assim começou tudo. Com uma brincadeira idiota e um sorriso que não saía do rosto.",
       },
     },
     {
@@ -112,54 +117,16 @@ export const PHASE_2 = {
       label: "O Sofá",
       required: true,
       position: {
-        x: 13,
-        y: 57,
-        width: 70,
-        height: 25,
+        x: 27,
+        y: 55,
+        width: 50,
+        height: 26,
       },
       memory: {
         type: "narration",
         title: "O Sofá",
         text:
-          "Sonequinha de domingo. Ela dormia primeiro, sempre. E eu ficava ali quieto com medo de acordar ela.",
-      },
-    },
-    {
-      id: "aspen",
-      label: "O Aspen",
-      required: true,
-      position: {
-        x: 75,
-        y: 42,
-        width: 20,
-        height: 25,
-      },
-      memory: {
-        type: "dialogue",
-        title: "O Aspen",
-        lines: [
-          {
-            speaker: "Alice",
-            text: "Ele tá te olhando",
-          },
-          {
-            speaker: "João",
-            text: "Ele não gosta de mim",
-          },
-          {
-            speaker: "Alice",
-            text: "Ele gosta sim, ele só é assim",
-          },
-          {
-            speaker: "João",
-            text: "Ele tá me julgando",
-          },
-          {
-            speaker: "Alice",
-            text: "KAKAKAK para",
-          },
-        ],
-        conclusion: "O Aspen nunca me julgou. Acho.",
+          "Tava tão bom o arzinho. Queria ter ficado mais tempo. Por mim ficava.",
       },
     },
     {
@@ -167,25 +134,42 @@ export const PHASE_2 = {
       label: "A Janela",
       required: false,
       position: {
-        x: 6,
-        y: 18,
-        width: 23,
-        height: 26,
+        x: 64,
+        y: 17,
+        width: 30,
+        height: 28,
       },
       memory: {
         type: "narration",
         title: "A Janela",
         text:
-          "Tarde de domingo, chuva lá fora, ela do lado. Não precisava de mais nada.",
+          "Lajeado lá fora, madrugada, e a única coisa que eu pensava era que não queria sair dali.",
+      },
+    },
+    {
+      id: "thomas",
+      label: "Thomas",
+      required: true,
+      position: {
+        x: 78,
+        y: 76,
+        width: 18,
+        height: 14,
+      },
+      memory: {
+        type: "narration",
+        title: "Thomas",
+        text:
+          "Sem o Thomas esse dia não teria acontecido. Ele nunca vai deixar a gente esquecer disso.",
       },
     },
   ],
 
   fragment: {
-    id: "fragment-2",
-    index: 1,
-    title: "Fragmento 2 de 4",
+    id: "fragment-1",
+    index: 0,
+    title: "Fragmento 1 de 4",
     description:
-      "Mais um pedaço da história. Os domingos que viraram lar.",
+      "O primeiro pedaço da imagem final apareceu. Um cantinho do começo de tudo.",
   },
 };
