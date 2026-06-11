@@ -91,6 +91,40 @@ function setAudioButtonsState() {
 }
 
 function syncAudioConsent() {
+  function maybeShowIntro() {
+  if (!dom.screenIntro || hasHandledIntro) return;
+
+  const introAlreadySeen = sessionStorage.getItem("ap205-intro-seen") === "true";
+
+  if (introAlreadySeen) {
+    dom.screenIntro.hidden = true;
+    return;
+  }
+
+  hasHandledIntro = true;
+  sessionStorage.setItem("ap205-intro-seen", "true");
+
+  window.clearTimeout(introTimer);
+  window.clearTimeout(introHideTimer);
+
+  dom.screenIntro.hidden = false;
+  dom.screenIntro.classList.remove("is-visible", "is-leaving");
+
+  window.requestAnimationFrame(() => {
+    dom.screenIntro.classList.add("is-visible");
+  });
+
+  introTimer = window.setTimeout(() => {
+    dom.screenIntro.classList.add("is-leaving");
+    dom.screenIntro.classList.remove("is-visible");
+  }, 3500);
+
+  introHideTimer = window.setTimeout(() => {
+    dom.screenIntro.hidden = true;
+    dom.screenIntro.classList.remove("is-leaving");
+  }, 4400);
+}
+  
   if (!dom.audioConsent) return;
 
   const shouldShow =
@@ -126,8 +160,11 @@ function renderFragmentsGrid(container) {
 
 export function renderStart() {
   const state = deps.State.getState();
+
   dom.btnContinueGame.hidden = !state.hasStarted;
   dom.resetHint.classList.toggle("is-visible", state.hasStarted);
+
+  maybeShowIntro();
 }
 
 function renderMap() {
