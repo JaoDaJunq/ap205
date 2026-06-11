@@ -22,6 +22,8 @@
   --focus: 0 0 0 3px rgba(255, 184, 107, 0.45);
 }
 
+/* Reset global */
+
 * {
   box-sizing: border-box;
 }
@@ -60,6 +62,8 @@ button:focus-visible,
   outline: none;
   box-shadow: var(--focus);
 }
+
+/* Componentes base */
 
 .noscript-message {
   margin: 24px;
@@ -120,6 +124,8 @@ h2,
 h3 {
   line-height: 1.05;
 }
+
+/* Botões */
 
 .primary-button,
 .ghost-button,
@@ -512,7 +518,7 @@ h3 {
   }
 }
 
-/* Fase */
+/* Tela de fase */
 
 .phase-inner {
   gap: 12px;
@@ -565,163 +571,7 @@ h3 {
   overflow: hidden;
 }
 
-.scene-ap-205 {
-  background:
-    radial-gradient(circle at 58% 22%, rgba(255, 227, 166, 0.42), transparent 28%),
-    linear-gradient(180deg, #50304a 0%, #37253a 56%, #2b1d2d 100%);
-}
-
-.scene-ap-205::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 35%;
-  background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(180deg, #6a4439, #4b2f2d);
-  background-size: 36px 100%, 100% 100%;
-}
-
-.ap-rug {
-  left: 24%;
-  bottom: 5%;
-  width: 54%;
-  height: 15%;
-  border-radius: 50%;
-  background: rgba(255, 184, 107, 0.18);
-}
-
-.ap-door {
-  left: 6%;
-  top: 22%;
-  width: 22%;
-  height: 50%;
-  border-radius: 14px 14px 2px 2px;
-  background: linear-gradient(180deg, #8a513f, #5e362f);
-  border: 4px solid rgba(255, 227, 166, 0.18);
-  box-shadow: inset -14px 0 rgba(0, 0, 0, 0.12);
-}
-
-.ap-door::after {
-  content: "";
-  position: absolute;
-  right: 14%;
-  top: 50%;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #ffd88c;
-}
-
-.ap-window {
-  right: 8%;
-  top: 19%;
-  width: 26%;
-  height: 23%;
-  border-radius: 16px;
-  background:
-    radial-gradient(circle at 70% 20%, #fff6a9 0 3px, transparent 4px),
-    radial-gradient(circle at 35% 32%, #fff6a9 0 2px, transparent 3px),
-    radial-gradient(circle at 58% 62%, #fff6a9 0 2px, transparent 3px),
-    linear-gradient(180deg, #15172e, #080a18);
-  border: 5px solid rgba(255, 227, 166, 0.32);
-}
-
-.ap-window::before,
-.ap-window::after {
-  content: "";
-  position: absolute;
-  background: rgba(255, 227, 166, 0.42);
-}
-
-.ap-window::before {
-  left: 50%;
-  top: 0;
-  width: 4px;
-  height: 100%;
-}
-
-.ap-window::after {
-  left: 0;
-  top: 50%;
-  width: 100%;
-  height: 4px;
-}
-
-.ap-sofa {
-  left: 28%;
-  top: 58%;
-  width: 46%;
-  height: 20%;
-  border-radius: 28px 28px 18px 18px;
-  background: linear-gradient(180deg, #ffb084, #d97464);
-  box-shadow: inset 0 -14px rgba(0, 0, 0, 0.08);
-}
-
-.ap-sofa::before {
-  content: "";
-  position: absolute;
-  left: 8%;
-  right: 8%;
-  top: -22%;
-  height: 46%;
-  border-radius: 24px 24px 10px 10px;
-  background: #ffca99;
-}
-
-.ap-sofa::after {
-  content: "";
-  position: absolute;
-  left: 47%;
-  top: 8%;
-  width: 3px;
-  height: 70%;
-  border-radius: 999px;
-  background: rgba(120, 51, 59, 0.18);
-}
-
-.ap-table {
-  left: 40%;
-  top: 78%;
-  width: 28%;
-  height: 10%;
-  border-radius: 50% 50% 20px 20px;
-  background: linear-gradient(180deg, #c78356, #83503b);
-}
-
-.ap-table::before {
-  content: "";
-  position: absolute;
-  left: 42%;
-  bottom: -58%;
-  width: 16%;
-  height: 64%;
-  border-radius: 8px;
-  background: #6e4033;
-}
-
-.npc-thomas {
-  right: 6%;
-  bottom: 9%;
-  width: 48px;
-  height: 48px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, #dff6ff, #ffffff);
-  border: 3px solid rgba(255, 255, 255, 0.55);
-  display: grid;
-  place-items: center;
-  color: #3a5162;
-  font-weight: 950;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
-}
-
-.npc-thomas::before {
-  content: "T";
-}
-
-/* Personagens placeholder */
+/* Personagens */
 
 .character {
   width: 56px;
@@ -736,98 +586,15 @@ h3 {
   display: block;
   object-fit: contain;
   object-position: center bottom;
+  mix-blend-mode: screen !important;
+  filter: contrast(1.1);
   pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;
 }
 
-.character-body {
-  position: absolute;
-  left: 50%;
-  top: 48%;
-  width: 46px;
-  height: 62px;
-  transform: translateX(-50%);
-  border-radius: 18px 18px 14px 14px;
-  background: #72a5ff;
-}
-
-.character-head {
-  position: absolute;
-  left: 50%;
-  top: 12%;
-  width: 46px;
-  height: 46px;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: #ffd2a8;
-  box-shadow: inset -6px -5px rgba(122, 64, 52, 0.12);
-}
-
-.character-head::before,
-.character-head::after {
-  content: "";
-  position: absolute;
-  top: 21px;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #38212c;
-}
-
-.character-head::before {
-  left: 13px;
-}
-
-.character-head::after {
-  right: 13px;
-}
-
-.character-name {
-  position: absolute;
-  left: 50%;
-  bottom: -3px;
-  transform: translateX(-50%);
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: rgba(255, 248, 237, 0.86);
-  color: #3a1c12;
-  font-size: 0.67rem;
-  font-weight: 900;
-  white-space: nowrap;
-}
-
-.character-joao .character-head {
-  background: #f1bc91;
-}
-
-.character-joao .character-head {
-  box-shadow:
-    inset 0 10px #49302d,
-    inset -6px -5px rgba(122, 64, 52, 0.12);
-}
-
-.character-joao .character-body {
-  background: linear-gradient(180deg, #7fb3ff, #4b72d8);
-}
-
-.character-alice .character-head {
-  background: #ffd2a8;
-  box-shadow:
-    inset 0 12px #5b3a2f,
-    inset -6px -5px rgba(122, 64, 52, 0.12);
-}
-
-.character-alice .character-body {
-  background: linear-gradient(180deg, #ff8eb0, #d95783);
-}
-
 .character-happy {
   animation: happyBounce 1.6s ease-in-out infinite;
-}
-
-.character-talking .character-head::after {
-  box-shadow: 0 11px 0 1px #38212c;
 }
 
 @keyframes happyBounce {
@@ -1217,572 +984,165 @@ h3 {
   }
 }
 
-/* Ajustes pequenos */
-/* Fase 3 — Vôlei */
+/* Cenário — Fase 1 — Ap 205 */
 
-.scene-volei {
+.scene-ap-205 {
   background:
-    radial-gradient(circle at 24% 10%, rgba(255, 241, 219, 0.42), transparent 22%),
-    radial-gradient(circle at 76% 10%, rgba(255, 241, 219, 0.36), transparent 24%),
-    linear-gradient(180deg, #18243d 0%, #24344d 42%, #2f2735 100%);
+    radial-gradient(circle at 58% 22%, rgba(255, 227, 166, 0.42), transparent 28%),
+    linear-gradient(180deg, #50304a 0%, #37253a 56%, #2b1d2d 100%);
 }
 
-.scene-volei::before {
+.scene-ap-205::before {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 38%;
+  height: 35%;
   background:
     linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(180deg, #c97945, #8f4d36);
-  background-size: 38px 100%, 100% 100%;
+    linear-gradient(180deg, #6a4439, #4b2f2d);
+  background-size: 36px 100%, 100% 100%;
 }
 
-.scene-volei::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(105deg, rgba(255, 245, 210, 0.16), transparent 30%),
-    linear-gradient(255deg, rgba(255, 245, 210, 0.14), transparent 34%);
-  pointer-events: none;
-}
-
-.volei-lights {
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 24%;
-  z-index: 1;
-}
-
-.volei-lights::before,
-.volei-lights::after {
-  content: "";
-  position: absolute;
-  top: 5%;
-  width: 24%;
-  height: 20%;
+.ap-rug {
+  left: 24%;
+  bottom: 5%;
+  width: 54%;
+  height: 15%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 246, 217, 0.9), rgba(255, 213, 136, 0.22) 44%, transparent 70%);
-  filter: blur(1px);
+  background: rgba(255, 184, 107, 0.18);
 }
 
-.volei-lights::before {
-  left: 12%;
+.ap-door {
+  left: 6%;
+  top: 22%;
+  width: 22%;
+  height: 50%;
+  border-radius: 14px 14px 2px 2px;
+  background: linear-gradient(180deg, #8a513f, #5e362f);
+  border: 4px solid rgba(255, 227, 166, 0.18);
+  box-shadow: inset -14px 0 rgba(0, 0, 0, 0.12);
 }
 
-.volei-lights::after {
-  right: 12%;
+.ap-door::after {
+  content: "";
+  position: absolute;
+  right: 14%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffd88c;
 }
 
-.volei-scoreboard {
-  left: 34%;
-  top: 10%;
-  width: 33%;
-  height: 14%;
+.ap-window {
+  right: 8%;
+  top: 19%;
+  width: 26%;
+  height: 23%;
   border-radius: 16px;
   background:
-    linear-gradient(180deg, #1b263d, #0c111d);
-  border: 4px solid rgba(255, 227, 166, 0.42);
-  box-shadow:
-    0 12px 26px rgba(0, 0, 0, 0.26),
-    inset 0 0 18px rgba(255, 184, 107, 0.08);
-  z-index: 3;
+    radial-gradient(circle at 70% 20%, #fff6a9 0 3px, transparent 4px),
+    radial-gradient(circle at 35% 32%, #fff6a9 0 2px, transparent 3px),
+    radial-gradient(circle at 58% 62%, #fff6a9 0 2px, transparent 3px),
+    linear-gradient(180deg, #15172e, #080a18);
+  border: 5px solid rgba(255, 227, 166, 0.32);
 }
 
-.volei-scoreboard::before {
-  content: "12  ·  10";
-  position: absolute;
-  left: 50%;
-  top: 29%;
-  transform: translateX(-50%);
-  color: #ffe3a6;
-  font-size: 0.88rem;
-  font-weight: 950;
-  letter-spacing: 0.08em;
-  text-shadow: 0 0 8px rgba(255, 184, 107, 0.7);
-  white-space: nowrap;
-}
-
-.volei-scoreboard::after {
-  content: "NOITE";
-  position: absolute;
-  left: 50%;
-  bottom: 13%;
-  transform: translateX(-50%);
-  color: rgba(255, 248, 237, 0.58);
-  font-size: 0.52rem;
-  font-weight: 900;
-  letter-spacing: 0.16em;
-}
-
-.volei-bleachers {
-  left: 4%;
-  top: 30%;
-  width: 39%;
-  height: 31%;
-  border-radius: 20px;
-  background:
-    repeating-linear-gradient(
-      180deg,
-      rgba(255, 248, 237, 0.16) 0 9px,
-      rgba(255, 248, 237, 0.06) 10px 18px
-    ),
-    linear-gradient(180deg, #4f5d78, #2f3b54);
-  border: 3px solid rgba(255, 248, 237, 0.12);
-  box-shadow: inset 0 -12px rgba(0, 0, 0, 0.12);
-  transform: perspective(120px) rotateX(2deg);
-  z-index: 2;
-}
-
-.volei-bleachers::before {
+.ap-window::before,
+.ap-window::after {
   content: "";
   position: absolute;
-  left: 8%;
-  right: 8%;
-  top: 18%;
-  height: 52%;
-  background:
-    radial-gradient(circle at 18% 34%, rgba(255, 214, 223, 0.76) 0 4px, transparent 5px),
-    radial-gradient(circle at 42% 52%, rgba(255, 227, 166, 0.7) 0 4px, transparent 5px),
-    radial-gradient(circle at 68% 38%, rgba(217, 247, 215, 0.68) 0 4px, transparent 5px),
-    radial-gradient(circle at 84% 62%, rgba(210, 232, 255, 0.7) 0 4px, transparent 5px);
-  opacity: 0.75;
+  background: rgba(255, 227, 166, 0.42);
 }
 
-.volei-court {
-  left: 7%;
-  bottom: 7%;
-  width: 86%;
-  height: 39%;
-  border-radius: 28px;
-  background:
-    linear-gradient(90deg, transparent calc(50% - 2px), rgba(255, 248, 237, 0.62) calc(50% - 2px) calc(50% + 2px), transparent calc(50% + 2px)),
-    linear-gradient(180deg, transparent 49%, rgba(255, 248, 237, 0.56) 50%, transparent 51%),
-    linear-gradient(180deg, #e49355, #bb6545);
-  border: 4px solid rgba(255, 248, 237, 0.7);
-  box-shadow:
-    0 18px 36px rgba(0, 0, 0, 0.2),
-    inset 0 0 0 10px rgba(255, 248, 237, 0.14);
-  transform: perspective(180px) rotateX(6deg);
-  transform-origin: bottom center;
-  z-index: 2;
-}
-
-.volei-court::before {
-  content: "";
-  position: absolute;
-  left: 13%;
-  right: 13%;
-  top: 18%;
-  bottom: 18%;
-  border: 3px solid rgba(255, 248, 237, 0.52);
-  border-radius: 18px;
-}
-
-.volei-court::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 6%;
-  bottom: 6%;
-  width: 3px;
-  transform: translateX(-50%);
-  border-radius: 999px;
-  background: rgba(255, 248, 237, 0.65);
-}
-
-.volei-net {
-  left: 47%;
-  top: 39%;
-  width: 8%;
-  height: 36%;
-  z-index: 5;
-}
-
-.volei-net::before {
-  content: "";
-  position: absolute;
+.ap-window::before {
   left: 50%;
   top: 0;
-  width: 5px;
+  width: 4px;
   height: 100%;
-  transform: translateX(-50%);
-  border-radius: 999px;
-  background: #fff1db;
-  box-shadow:
-    -28px 0 0 rgba(255, 241, 219, 0.9),
-    28px 0 0 rgba(255, 241, 219, 0.9);
 }
 
-.volei-net::after {
-  content: "";
-  position: absolute;
-  left: -28px;
-  right: -28px;
-  top: 18%;
-  height: 44%;
-  border-radius: 8px;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      rgba(255, 248, 237, 0.78) 0 2px,
-      transparent 3px 9px
-    ),
-    repeating-linear-gradient(
-      180deg,
-      rgba(255, 248, 237, 0.66) 0 2px,
-      transparent 3px 9px
-    );
-  border-top: 4px solid rgba(255, 248, 237, 0.92);
-  border-bottom: 3px solid rgba(255, 248, 237, 0.72);
-  opacity: 0.92;
-}
-
-.volei-ball {
-  left: 69%;
-  top: 72%;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background:
-    linear-gradient(135deg, transparent 42%, rgba(42, 36, 52, 0.18) 43% 49%, transparent 50%),
-    linear-gradient(45deg, transparent 42%, rgba(42, 36, 52, 0.16) 43% 49%, transparent 50%),
-    radial-gradient(circle at 34% 28%, #ffffff 0 18%, #fff1db 19% 100%);
-  border: 3px solid rgba(255, 248, 237, 0.9);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22);
-  z-index: 6;
-}
-
-.volei-court-glow {
-  left: 23%;
-  bottom: 16%;
-  width: 55%;
-  height: 16%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 232, 176, 0.18), transparent 70%);
-  filter: blur(3px);
-  z-index: 3;
-  pointer-events: none;
-}
-/* Fase 4 — Planeta Atlântida */
-
-.scene-planeta {
-  background:
-    radial-gradient(circle at 20% 12%, rgba(255, 122, 158, 0.16), transparent 24%),
-    radial-gradient(circle at 82% 10%, rgba(255, 184, 107, 0.18), transparent 26%),
-    linear-gradient(180deg, #0f1631 0%, #1d2244 42%, #241b30 72%, #1b1a24 100%);
-}
-
-.scene-planeta::before {
-  content: "";
-  position: absolute;
+.ap-window::after {
   left: 0;
-  right: 0;
-  bottom: 0;
-  height: 22%;
-  background:
-    linear-gradient(180deg, rgba(34, 66, 40, 0.1), rgba(34, 66, 40, 0.22)),
-    linear-gradient(180deg, #36523a, #26372a);
-}
-
-.scene-planeta::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, transparent 0 74%, rgba(255, 248, 237, 0.03) 75%, transparent 76%),
-    radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.06), transparent 32%);
-  pointer-events: none;
-}
-
-.planeta-sky-stars {
-  inset: 0;
-  z-index: 1;
-}
-
-.planeta-sky-stars::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 10% 14%, #fff6c7 0 1.5px, transparent 2px),
-    radial-gradient(circle at 22% 8%, #ffffff 0 1.5px, transparent 2px),
-    radial-gradient(circle at 37% 18%, #fff6c7 0 1.5px, transparent 2px),
-    radial-gradient(circle at 54% 9%, #ffffff 0 1.5px, transparent 2px),
-    radial-gradient(circle at 68% 16%, #fff6c7 0 1.5px, transparent 2px),
-    radial-gradient(circle at 82% 11%, #ffffff 0 1.5px, transparent 2px),
-    radial-gradient(circle at 91% 20%, #fff6c7 0 1.5px, transparent 2px),
-    radial-gradient(circle at 72% 28%, #ffffff 0 1.5px, transparent 2px),
-    radial-gradient(circle at 18% 26%, #fff6c7 0 1.5px, transparent 2px);
-  opacity: 0.95;
-}
-
-.planeta-stage-glow {
-  left: 18%;
-  top: 18%;
-  width: 64%;
-  height: 34%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 248, 237, 0.14), transparent 68%);
-  filter: blur(5px);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.planeta-sign {
-  left: 24%;
-  top: 10%;
-  width: 52%;
-  height: 9%;
-  border-radius: 999px;
-  background: linear-gradient(135deg, rgba(255, 122, 158, 0.92), rgba(255, 184, 107, 0.92));
-  border: 3px solid rgba(255, 248, 237, 0.34);
-  box-shadow:
-    0 12px 24px rgba(0, 0, 0, 0.22),
-    0 0 18px rgba(255, 122, 158, 0.32);
-  z-index: 4;
-}
-
-.planeta-sign::before {
-  content: "PLANETA ATLÂNTIDA";
-  position: absolute;
-  left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff8ed;
-  font-size: 0.72rem;
-  font-weight: 950;
-  letter-spacing: 0.08em;
-  white-space: nowrap;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+  width: 100%;
+  height: 4px;
 }
 
-.planeta-stage {
-  left: 23%;
-  top: 21%;
-  width: 54%;
-  height: 33%;
-  border-radius: 24px 24px 14px 14px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 30%),
-    linear-gradient(180deg, #30354e, #181924);
-  border: 4px solid rgba(255, 248, 237, 0.14);
-  box-shadow:
-    0 18px 36px rgba(0, 0, 0, 0.28),
-    inset 0 -10px rgba(0, 0, 0, 0.16);
-  z-index: 3;
+.ap-sofa {
+  left: 28%;
+  top: 58%;
+  width: 46%;
+  height: 20%;
+  border-radius: 28px 28px 18px 18px;
+  background: linear-gradient(180deg, #ffb084, #d97464);
+  box-shadow: inset 0 -14px rgba(0, 0, 0, 0.08);
 }
 
-.planeta-stage::before {
+.ap-sofa::before {
   content: "";
   position: absolute;
   left: 8%;
   right: 8%;
-  top: 18%;
-  height: 9%;
-  border-radius: 999px;
-  background:
-    linear-gradient(90deg, #ff7a9e, #ffb86b, #7ed7ff, #ff7a9e);
-  opacity: 0.92;
-  box-shadow: 0 0 20px rgba(255, 184, 107, 0.34);
+  top: -22%;
+  height: 46%;
+  border-radius: 24px 24px 10px 10px;
+  background: #ffca99;
 }
 
-.planeta-stage::after {
+.ap-sofa::after {
   content: "";
   position: absolute;
-  left: 10%;
-  right: 10%;
-  bottom: 10%;
-  height: 18%;
-  border-radius: 10px;
-  background: linear-gradient(180deg, rgba(255, 248, 237, 0.04), rgba(255, 248, 237, 0.01));
-}
-
-.planeta-screen {
-  width: 12%;
-  height: 18%;
-  top: 26%;
-  border-radius: 14px;
-  background:
-    radial-gradient(circle at 50% 40%, rgba(255, 248, 237, 0.22), transparent 35%),
-    linear-gradient(180deg, #191a26, #0d0e16);
-  border: 3px solid rgba(255, 248, 237, 0.12);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24);
-  z-index: 3;
-}
-
-.planeta-screen-left {
-  left: 9%;
-}
-
-.planeta-screen-right {
-  right: 9%;
-}
-
-.planeta-screen::before {
-  content: "";
-  position: absolute;
-  left: 20%;
-  top: 18%;
-  width: 60%;
-  height: 18%;
-  border-radius: 999px;
-  background: rgba(255, 122, 158, 0.48);
-}
-
-.planeta-screen::after {
-  content: "";
-  position: absolute;
-  left: 28%;
-  top: 48%;
-  width: 44%;
-  height: 12%;
-  border-radius: 999px;
-  background: rgba(255, 184, 107, 0.42);
-}
-
-.planeta-lights {
-  left: 12%;
-  top: 13%;
-  width: 76%;
-  height: 20%;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.planeta-lights::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 8% 28%, rgba(255, 122, 158, 0.92) 0 6px, transparent 7px),
-    radial-gradient(circle at 22% 18%, rgba(255, 184, 107, 0.92) 0 6px, transparent 7px),
-    radial-gradient(circle at 38% 26%, rgba(126, 215, 255, 0.92) 0 6px, transparent 7px),
-    radial-gradient(circle at 52% 14%, rgba(255, 248, 237, 0.88) 0 6px, transparent 7px),
-    radial-gradient(circle at 67% 26%, rgba(174, 255, 160, 0.9) 0 6px, transparent 7px),
-    radial-gradient(circle at 82% 19%, rgba(255, 122, 158, 0.92) 0 6px, transparent 7px),
-    radial-gradient(circle at 94% 30%, rgba(255, 184, 107, 0.92) 0 6px, transparent 7px);
-}
-
-.planeta-lights::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(115deg, transparent 8%, rgba(255, 122, 158, 0.14) 18%, transparent 30%),
-    linear-gradient(95deg, transparent 26%, rgba(255, 184, 107, 0.12) 38%, transparent 50%),
-    linear-gradient(75deg, transparent 48%, rgba(126, 215, 255, 0.12) 60%, transparent 72%);
-}
-
-.planeta-microphone {
   left: 47%;
-  top: 43%;
-  width: 9%;
-  height: 20%;
-  z-index: 6;
-}
-
-.planeta-microphone::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 18%;
-  width: 5px;
-  height: 68%;
-  transform: translateX(-50%);
+  top: 8%;
+  width: 3px;
+  height: 70%;
   border-radius: 999px;
-  background: linear-gradient(180deg, #d2d6df, #7f8797);
+  background: rgba(120, 51, 59, 0.18);
 }
 
-.planeta-microphone::after {
+.ap-table {
+  left: 40%;
+  top: 78%;
+  width: 28%;
+  height: 10%;
+  border-radius: 50% 50% 20px 20px;
+  background: linear-gradient(180deg, #c78356, #83503b);
+}
+
+.ap-table::before {
   content: "";
   position: absolute;
-  left: 50%;
-  top: 0;
-  width: 18px;
-  height: 18px;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: radial-gradient(circle at 38% 32%, #ffffff, #aab1c1 72%);
-  box-shadow: 0 0 12px rgba(255, 248, 237, 0.18);
+  left: 42%;
+  bottom: -58%;
+  width: 16%;
+  height: 64%;
+  border-radius: 8px;
+  background: #6e4033;
 }
 
-.planeta-crowd {
-  left: 0;
-  right: 0;
-  bottom: 12%;
-  height: 21%;
-  z-index: 2;
-  overflow: hidden;
+.npc-thomas {
+  right: 6%;
+  bottom: 9%;
+  width: 48px;
+  height: 48px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #dff6ff, #ffffff);
+  border: 3px solid rgba(255, 255, 255, 0.55);
+  display: grid;
+  place-items: center;
+  color: #3a5162;
+  font-weight: 950;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
 }
 
-.planeta-crowd::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 4% 78%, #17141f 0 18px, transparent 19px),
-    radial-gradient(circle at 12% 72%, #1b1724 0 22px, transparent 23px),
-    radial-gradient(circle at 20% 80%, #17141f 0 16px, transparent 17px),
-    radial-gradient(circle at 30% 70%, #1c1825 0 24px, transparent 25px),
-    radial-gradient(circle at 40% 82%, #17141f 0 17px, transparent 18px),
-    radial-gradient(circle at 50% 70%, #1d1926 0 24px, transparent 25px),
-    radial-gradient(circle at 60% 80%, #17141f 0 16px, transparent 17px),
-    radial-gradient(circle at 70% 72%, #1b1724 0 22px, transparent 23px),
-    radial-gradient(circle at 80% 82%, #17141f 0 17px, transparent 18px),
-    radial-gradient(circle at 90% 70%, #1d1926 0 24px, transparent 25px),
-    radial-gradient(circle at 98% 79%, #17141f 0 16px, transparent 17px);
-  opacity: 0.96;
+.npc-thomas::before {
+  content: "T";
 }
 
-.planeta-crowd::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 12%;
-  height: 18%;
-  background:
-    radial-gradient(circle at 18% 40%, rgba(255, 122, 158, 0.22) 0 2px, transparent 3px),
-    radial-gradient(circle at 37% 56%, rgba(255, 184, 107, 0.22) 0 2px, transparent 3px),
-    radial-gradient(circle at 54% 44%, rgba(255, 248, 237, 0.18) 0 2px, transparent 3px),
-    radial-gradient(circle at 72% 52%, rgba(126, 215, 255, 0.22) 0 2px, transparent 3px);
-}
-
-.planeta-grass {
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 13%;
-  background:
-    linear-gradient(180deg, rgba(88, 134, 92, 0.14), transparent 18%),
-    linear-gradient(180deg, #2f4d34, #253829);
-  z-index: 1;
-}
-@media (max-width: 360px) {
-  .scene-stage {
-    min-height: 440px;
-  }
-
-  .phase-card {
-    grid-template-columns: 48px 1fr;
-  }
-
-  .phase-status {
-    grid-column: 2;
-    width: fit-content;
-  }
-
-  .phase-number {
-    width: 48px;
-    height: 48px;
-  }
-}
-/* Fase 2 — Domingos */
+/* Cenário — Fase 2 — Domingos */
 
 .scene-domingos {
   background:
@@ -2092,4 +1452,572 @@ h3 {
   height: 6px;
   clip-path: polygon(50% 100%, 0 0, 100% 0);
   background: #f1a548;
+}
+
+/* Cenário — Fase 3 — Vôlei */
+
+.scene-volei {
+  background:
+    radial-gradient(circle at 24% 10%, rgba(255, 241, 219, 0.42), transparent 22%),
+    radial-gradient(circle at 76% 10%, rgba(255, 241, 219, 0.36), transparent 24%),
+    linear-gradient(180deg, #18243d 0%, #24344d 42%, #2f2735 100%);
+}
+
+.scene-volei::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 38%;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(180deg, #c97945, #8f4d36);
+  background-size: 38px 100%, 100% 100%;
+}
+
+.scene-volei::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(105deg, rgba(255, 245, 210, 0.16), transparent 30%),
+    linear-gradient(255deg, rgba(255, 245, 210, 0.14), transparent 34%);
+  pointer-events: none;
+}
+
+.volei-lights {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 24%;
+  z-index: 1;
+}
+
+.volei-lights::before,
+.volei-lights::after {
+  content: "";
+  position: absolute;
+  top: 5%;
+  width: 24%;
+  height: 20%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 246, 217, 0.9), rgba(255, 213, 136, 0.22) 44%, transparent 70%);
+  filter: blur(1px);
+}
+
+.volei-lights::before {
+  left: 12%;
+}
+
+.volei-lights::after {
+  right: 12%;
+}
+
+.volei-scoreboard {
+  left: 34%;
+  top: 10%;
+  width: 33%;
+  height: 14%;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #1b263d, #0c111d);
+  border: 4px solid rgba(255, 227, 166, 0.42);
+  box-shadow:
+    0 12px 26px rgba(0, 0, 0, 0.26),
+    inset 0 0 18px rgba(255, 184, 107, 0.08);
+  z-index: 3;
+}
+
+.volei-scoreboard::before {
+  content: "12  ·  10";
+  position: absolute;
+  left: 50%;
+  top: 29%;
+  transform: translateX(-50%);
+  color: #ffe3a6;
+  font-size: 0.88rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 8px rgba(255, 184, 107, 0.7);
+  white-space: nowrap;
+}
+
+.volei-scoreboard::after {
+  content: "NOITE";
+  position: absolute;
+  left: 50%;
+  bottom: 13%;
+  transform: translateX(-50%);
+  color: rgba(255, 248, 237, 0.58);
+  font-size: 0.52rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.volei-bleachers {
+  left: 4%;
+  top: 30%;
+  width: 39%;
+  height: 31%;
+  border-radius: 20px;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 248, 237, 0.16) 0 9px,
+      rgba(255, 248, 237, 0.06) 10px 18px
+    ),
+    linear-gradient(180deg, #4f5d78, #2f3b54);
+  border: 3px solid rgba(255, 248, 237, 0.12);
+  box-shadow: inset 0 -12px rgba(0, 0, 0, 0.12);
+  transform: perspective(120px) rotateX(2deg);
+  z-index: 2;
+}
+
+.volei-bleachers::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 18%;
+  height: 52%;
+  background:
+    radial-gradient(circle at 18% 34%, rgba(255, 214, 223, 0.76) 0 4px, transparent 5px),
+    radial-gradient(circle at 42% 52%, rgba(255, 227, 166, 0.7) 0 4px, transparent 5px),
+    radial-gradient(circle at 68% 38%, rgba(217, 247, 215, 0.68) 0 4px, transparent 5px),
+    radial-gradient(circle at 84% 62%, rgba(210, 232, 255, 0.7) 0 4px, transparent 5px);
+  opacity: 0.75;
+}
+
+.volei-court {
+  left: 7%;
+  bottom: 7%;
+  width: 86%;
+  height: 39%;
+  border-radius: 28px;
+  background:
+    linear-gradient(90deg, transparent calc(50% - 2px), rgba(255, 248, 237, 0.62) calc(50% - 2px) calc(50% + 2px), transparent calc(50% + 2px)),
+    linear-gradient(180deg, transparent 49%, rgba(255, 248, 237, 0.56) 50%, transparent 51%),
+    linear-gradient(180deg, #e49355, #bb6545);
+  border: 4px solid rgba(255, 248, 237, 0.7);
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 10px rgba(255, 248, 237, 0.14);
+  transform: perspective(180px) rotateX(6deg);
+  transform-origin: bottom center;
+  z-index: 2;
+}
+
+.volei-court::before {
+  content: "";
+  position: absolute;
+  left: 13%;
+  right: 13%;
+  top: 18%;
+  bottom: 18%;
+  border: 3px solid rgba(255, 248, 237, 0.52);
+  border-radius: 18px;
+}
+
+.volei-court::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 6%;
+  bottom: 6%;
+  width: 3px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: rgba(255, 248, 237, 0.65);
+}
+
+.volei-net {
+  left: 47%;
+  top: 39%;
+  width: 8%;
+  height: 36%;
+  z-index: 5;
+}
+
+.volei-net::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #fff1db;
+  box-shadow:
+    -28px 0 0 rgba(255, 241, 219, 0.9),
+    28px 0 0 rgba(255, 241, 219, 0.9);
+}
+
+.volei-net::after {
+  content: "";
+  position: absolute;
+  left: -28px;
+  right: -28px;
+  top: 18%;
+  height: 44%;
+  border-radius: 8px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 248, 237, 0.78) 0 2px,
+      transparent 3px 9px
+    ),
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 248, 237, 0.66) 0 2px,
+      transparent 3px 9px
+    );
+  border-top: 4px solid rgba(255, 248, 237, 0.92);
+  border-bottom: 3px solid rgba(255, 248, 237, 0.72);
+  opacity: 0.92;
+}
+
+.volei-ball {
+  left: 69%;
+  top: 72%;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background:
+    linear-gradient(135deg, transparent 42%, rgba(42, 36, 52, 0.18) 43% 49%, transparent 50%),
+    linear-gradient(45deg, transparent 42%, rgba(42, 36, 52, 0.16) 43% 49%, transparent 50%),
+    radial-gradient(circle at 34% 28%, #ffffff 0 18%, #fff1db 19% 100%);
+  border: 3px solid rgba(255, 248, 237, 0.9);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22);
+  z-index: 6;
+}
+
+.volei-court-glow {
+  left: 23%;
+  bottom: 16%;
+  width: 55%;
+  height: 16%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 232, 176, 0.18), transparent 70%);
+  filter: blur(3px);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Cenário — Fase 4 — Planeta Atlântida */
+
+.scene-planeta {
+  background:
+    radial-gradient(circle at 20% 12%, rgba(255, 122, 158, 0.16), transparent 24%),
+    radial-gradient(circle at 82% 10%, rgba(255, 184, 107, 0.18), transparent 26%),
+    linear-gradient(180deg, #0f1631 0%, #1d2244 42%, #241b30 72%, #1b1a24 100%);
+}
+
+.scene-planeta::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 22%;
+  background:
+    linear-gradient(180deg, rgba(34, 66, 40, 0.1), rgba(34, 66, 40, 0.22)),
+    linear-gradient(180deg, #36523a, #26372a);
+}
+
+.scene-planeta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 0 74%, rgba(255, 248, 237, 0.03) 75%, transparent 76%),
+    radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.06), transparent 32%);
+  pointer-events: none;
+}
+
+.planeta-sky-stars {
+  inset: 0;
+  z-index: 1;
+}
+
+.planeta-sky-stars::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 14%, #fff6c7 0 1.5px, transparent 2px),
+    radial-gradient(circle at 22% 8%, #ffffff 0 1.5px, transparent 2px),
+    radial-gradient(circle at 37% 18%, #fff6c7 0 1.5px, transparent 2px),
+    radial-gradient(circle at 54% 9%, #ffffff 0 1.5px, transparent 2px),
+    radial-gradient(circle at 68% 16%, #fff6c7 0 1.5px, transparent 2px),
+    radial-gradient(circle at 82% 11%, #ffffff 0 1.5px, transparent 2px),
+    radial-gradient(circle at 91% 20%, #fff6c7 0 1.5px, transparent 2px),
+    radial-gradient(circle at 72% 28%, #ffffff 0 1.5px, transparent 2px),
+    radial-gradient(circle at 18% 26%, #fff6c7 0 1.5px, transparent 2px);
+  opacity: 0.95;
+}
+
+.planeta-stage-glow {
+  left: 18%;
+  top: 18%;
+  width: 64%;
+  height: 34%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 248, 237, 0.14), transparent 68%);
+  filter: blur(5px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.planeta-sign {
+  left: 24%;
+  top: 10%;
+  width: 52%;
+  height: 9%;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(255, 122, 158, 0.92), rgba(255, 184, 107, 0.92));
+  border: 3px solid rgba(255, 248, 237, 0.34);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.22),
+    0 0 18px rgba(255, 122, 158, 0.32);
+  z-index: 4;
+}
+
+.planeta-sign::before {
+  content: "PLANETA ATLÂNTIDA";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff8ed;
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+}
+
+.planeta-stage {
+  left: 23%;
+  top: 21%;
+  width: 54%;
+  height: 33%;
+  border-radius: 24px 24px 14px 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 30%),
+    linear-gradient(180deg, #30354e, #181924);
+  border: 4px solid rgba(255, 248, 237, 0.14);
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.28),
+    inset 0 -10px rgba(0, 0, 0, 0.16);
+  z-index: 3;
+}
+
+.planeta-stage::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 18%;
+  height: 9%;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, #ff7a9e, #ffb86b, #7ed7ff, #ff7a9e);
+  opacity: 0.92;
+  box-shadow: 0 0 20px rgba(255, 184, 107, 0.34);
+}
+
+.planeta-stage::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  height: 18%;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255, 248, 237, 0.04), rgba(255, 248, 237, 0.01));
+}
+
+.planeta-screen {
+  width: 12%;
+  height: 18%;
+  top: 26%;
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(255, 248, 237, 0.22), transparent 35%),
+    linear-gradient(180deg, #191a26, #0d0e16);
+  border: 3px solid rgba(255, 248, 237, 0.12);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24);
+  z-index: 3;
+}
+
+.planeta-screen-left {
+  left: 9%;
+}
+
+.planeta-screen-right {
+  right: 9%;
+}
+
+.planeta-screen::before {
+  content: "";
+  position: absolute;
+  left: 20%;
+  top: 18%;
+  width: 60%;
+  height: 18%;
+  border-radius: 999px;
+  background: rgba(255, 122, 158, 0.48);
+}
+
+.planeta-screen::after {
+  content: "";
+  position: absolute;
+  left: 28%;
+  top: 48%;
+  width: 44%;
+  height: 12%;
+  border-radius: 999px;
+  background: rgba(255, 184, 107, 0.42);
+}
+
+.planeta-lights {
+  left: 12%;
+  top: 13%;
+  width: 76%;
+  height: 20%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.planeta-lights::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 8% 28%, rgba(255, 122, 158, 0.92) 0 6px, transparent 7px),
+    radial-gradient(circle at 22% 18%, rgba(255, 184, 107, 0.92) 0 6px, transparent 7px),
+    radial-gradient(circle at 38% 26%, rgba(126, 215, 255, 0.92) 0 6px, transparent 7px),
+    radial-gradient(circle at 52% 14%, rgba(255, 248, 237, 0.88) 0 6px, transparent 7px),
+    radial-gradient(circle at 67% 26%, rgba(174, 255, 160, 0.9) 0 6px, transparent 7px),
+    radial-gradient(circle at 82% 19%, rgba(255, 122, 158, 0.92) 0 6px, transparent 7px),
+    radial-gradient(circle at 94% 30%, rgba(255, 184, 107, 0.92) 0 6px, transparent 7px);
+}
+
+.planeta-lights::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, transparent 8%, rgba(255, 122, 158, 0.14) 18%, transparent 30%),
+    linear-gradient(95deg, transparent 26%, rgba(255, 184, 107, 0.12) 38%, transparent 50%),
+    linear-gradient(75deg, transparent 48%, rgba(126, 215, 255, 0.12) 60%, transparent 72%);
+}
+
+.planeta-microphone {
+  left: 47%;
+  top: 43%;
+  width: 9%;
+  height: 20%;
+  z-index: 6;
+}
+
+.planeta-microphone::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 18%;
+  width: 5px;
+  height: 68%;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #d2d6df, #7f8797);
+}
+
+.planeta-microphone::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%, #ffffff, #aab1c1 72%);
+  box-shadow: 0 0 12px rgba(255, 248, 237, 0.18);
+}
+
+.planeta-crowd {
+  left: 0;
+  right: 0;
+  bottom: 12%;
+  height: 21%;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.planeta-crowd::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 4% 78%, #17141f 0 18px, transparent 19px),
+    radial-gradient(circle at 12% 72%, #1b1724 0 22px, transparent 23px),
+    radial-gradient(circle at 20% 80%, #17141f 0 16px, transparent 17px),
+    radial-gradient(circle at 30% 70%, #1c1825 0 24px, transparent 25px),
+    radial-gradient(circle at 40% 82%, #17141f 0 17px, transparent 18px),
+    radial-gradient(circle at 50% 70%, #1d1926 0 24px, transparent 25px),
+    radial-gradient(circle at 60% 80%, #17141f 0 16px, transparent 17px),
+    radial-gradient(circle at 70% 72%, #1b1724 0 22px, transparent 23px),
+    radial-gradient(circle at 80% 82%, #17141f 0 17px, transparent 18px),
+    radial-gradient(circle at 90% 70%, #1d1926 0 24px, transparent 25px),
+    radial-gradient(circle at 98% 79%, #17141f 0 16px, transparent 17px);
+  opacity: 0.96;
+}
+
+.planeta-crowd::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12%;
+  height: 18%;
+  background:
+    radial-gradient(circle at 18% 40%, rgba(255, 122, 158, 0.22) 0 2px, transparent 3px),
+    radial-gradient(circle at 37% 56%, rgba(255, 184, 107, 0.22) 0 2px, transparent 3px),
+    radial-gradient(circle at 54% 44%, rgba(255, 248, 237, 0.18) 0 2px, transparent 3px),
+    radial-gradient(circle at 72% 52%, rgba(126, 215, 255, 0.22) 0 2px, transparent 3px);
+}
+
+.planeta-grass {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 13%;
+  background:
+    linear-gradient(180deg, rgba(88, 134, 92, 0.14), transparent 18%),
+    linear-gradient(180deg, #2f4d34, #253829);
+  z-index: 1;
+}
+
+/* Ajustes mobile pequenos — sempre por último */
+
+@media (max-width: 360px) {
+  .scene-stage {
+    min-height: 440px;
+  }
+
+  .phase-card {
+    grid-template-columns: 48px 1fr;
+  }
+
+  .phase-status {
+    grid-column: 2;
+    width: fit-content;
+  }
+
+  .phase-number {
+    width: 48px;
+    height: 48px;
+  }
 }
