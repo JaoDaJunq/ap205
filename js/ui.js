@@ -19,7 +19,7 @@ function qs(selector) {
 
 function cacheDom() {
   dom.screenIntro = qs("#screen-intro");
-  
+
   dom.startTitle = qs("#start-title");
   dom.btnStartGame = qs("#btn-start-game");
   dom.btnContinueGame = qs("#btn-continue-game");
@@ -91,12 +91,23 @@ function setAudioButtonsState() {
 }
 
 function syncAudioConsent() {
-  function maybeShowIntro() {
+  if (!dom.audioConsent) return;
+
+  const shouldShow =
+    currentPhase &&
+    deps.Audio.hasTrack() &&
+    !deps.Audio.isAudioEnabled();
+
+  dom.audioConsent.hidden = !shouldShow;
+}
+
+function maybeShowIntro() {
   if (!dom.screenIntro || hasHandledIntro) return;
 
   const introAlreadySeen = sessionStorage.getItem("ap205-intro-seen") === "true";
 
   if (introAlreadySeen) {
+    hasHandledIntro = true;
     dom.screenIntro.hidden = true;
     return;
   }
@@ -123,16 +134,6 @@ function syncAudioConsent() {
     dom.screenIntro.hidden = true;
     dom.screenIntro.classList.remove("is-leaving");
   }, 4400);
-}
-  
-  if (!dom.audioConsent) return;
-
-  const shouldShow =
-    currentPhase &&
-    deps.Audio.hasTrack() &&
-    !deps.Audio.isAudioEnabled();
-
-  dom.audioConsent.hidden = !shouldShow;
 }
 
 function makeFragmentCell(fragmentId, index, unlocked) {
