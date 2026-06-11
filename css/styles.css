@@ -1468,6 +1468,301 @@ h3 {
   z-index: 3;
   pointer-events: none;
 }
+/* Fase 4 — Planeta Atlântida */
+
+.scene-planeta {
+  background:
+    radial-gradient(circle at 20% 12%, rgba(255, 122, 158, 0.16), transparent 24%),
+    radial-gradient(circle at 82% 10%, rgba(255, 184, 107, 0.18), transparent 26%),
+    linear-gradient(180deg, #0f1631 0%, #1d2244 42%, #241b30 72%, #1b1a24 100%);
+}
+
+.scene-planeta::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 22%;
+  background:
+    linear-gradient(180deg, rgba(34, 66, 40, 0.1), rgba(34, 66, 40, 0.22)),
+    linear-gradient(180deg, #36523a, #26372a);
+}
+
+.scene-planeta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 0 74%, rgba(255, 248, 237, 0.03) 75%, transparent 76%),
+    radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.06), transparent 32%);
+  pointer-events: none;
+}
+
+.planeta-sky-stars {
+  inset: 0;
+  z-index: 1;
+}
+
+.planeta-sky-stars::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 14%, #fff6c7 0 1.5px, transparent 2px),
+    radial-gradient(circle at 22% 8%, #ffffff 0 1.5px, transparent 2px),
+    radial-gradient(circle at 37% 18%, #fff6c7 0 1.5px, transparent 2px),
+    radial-gradient(circle at 54% 9%, #ffffff 0 1.5px, transparent 2px),
+    radial-gradient(circle at 68% 16%, #fff6c7 0 1.5px, transparent 2px),
+    radial-gradient(circle at 82% 11%, #ffffff 0 1.5px, transparent 2px),
+    radial-gradient(circle at 91% 20%, #fff6c7 0 1.5px, transparent 2px),
+    radial-gradient(circle at 72% 28%, #ffffff 0 1.5px, transparent 2px),
+    radial-gradient(circle at 18% 26%, #fff6c7 0 1.5px, transparent 2px);
+  opacity: 0.95;
+}
+
+.planeta-stage-glow {
+  left: 18%;
+  top: 18%;
+  width: 64%;
+  height: 34%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 248, 237, 0.14), transparent 68%);
+  filter: blur(5px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.planeta-sign {
+  left: 24%;
+  top: 10%;
+  width: 52%;
+  height: 9%;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(255, 122, 158, 0.92), rgba(255, 184, 107, 0.92));
+  border: 3px solid rgba(255, 248, 237, 0.34);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.22),
+    0 0 18px rgba(255, 122, 158, 0.32);
+  z-index: 4;
+}
+
+.planeta-sign::before {
+  content: "PLANETA ATLÂNTIDA";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff8ed;
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+}
+
+.planeta-stage {
+  left: 23%;
+  top: 21%;
+  width: 54%;
+  height: 33%;
+  border-radius: 24px 24px 14px 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 30%),
+    linear-gradient(180deg, #30354e, #181924);
+  border: 4px solid rgba(255, 248, 237, 0.14);
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.28),
+    inset 0 -10px rgba(0, 0, 0, 0.16);
+  z-index: 3;
+}
+
+.planeta-stage::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 18%;
+  height: 9%;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, #ff7a9e, #ffb86b, #7ed7ff, #ff7a9e);
+  opacity: 0.92;
+  box-shadow: 0 0 20px rgba(255, 184, 107, 0.34);
+}
+
+.planeta-stage::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  height: 18%;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255, 248, 237, 0.04), rgba(255, 248, 237, 0.01));
+}
+
+.planeta-screen {
+  width: 12%;
+  height: 18%;
+  top: 26%;
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(255, 248, 237, 0.22), transparent 35%),
+    linear-gradient(180deg, #191a26, #0d0e16);
+  border: 3px solid rgba(255, 248, 237, 0.12);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24);
+  z-index: 3;
+}
+
+.planeta-screen-left {
+  left: 9%;
+}
+
+.planeta-screen-right {
+  right: 9%;
+}
+
+.planeta-screen::before {
+  content: "";
+  position: absolute;
+  left: 20%;
+  top: 18%;
+  width: 60%;
+  height: 18%;
+  border-radius: 999px;
+  background: rgba(255, 122, 158, 0.48);
+}
+
+.planeta-screen::after {
+  content: "";
+  position: absolute;
+  left: 28%;
+  top: 48%;
+  width: 44%;
+  height: 12%;
+  border-radius: 999px;
+  background: rgba(255, 184, 107, 0.42);
+}
+
+.planeta-lights {
+  left: 12%;
+  top: 13%;
+  width: 76%;
+  height: 20%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.planeta-lights::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 8% 28%, rgba(255, 122, 158, 0.92) 0 6px, transparent 7px),
+    radial-gradient(circle at 22% 18%, rgba(255, 184, 107, 0.92) 0 6px, transparent 7px),
+    radial-gradient(circle at 38% 26%, rgba(126, 215, 255, 0.92) 0 6px, transparent 7px),
+    radial-gradient(circle at 52% 14%, rgba(255, 248, 237, 0.88) 0 6px, transparent 7px),
+    radial-gradient(circle at 67% 26%, rgba(174, 255, 160, 0.9) 0 6px, transparent 7px),
+    radial-gradient(circle at 82% 19%, rgba(255, 122, 158, 0.92) 0 6px, transparent 7px),
+    radial-gradient(circle at 94% 30%, rgba(255, 184, 107, 0.92) 0 6px, transparent 7px);
+}
+
+.planeta-lights::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, transparent 8%, rgba(255, 122, 158, 0.14) 18%, transparent 30%),
+    linear-gradient(95deg, transparent 26%, rgba(255, 184, 107, 0.12) 38%, transparent 50%),
+    linear-gradient(75deg, transparent 48%, rgba(126, 215, 255, 0.12) 60%, transparent 72%);
+}
+
+.planeta-microphone {
+  left: 47%;
+  top: 43%;
+  width: 9%;
+  height: 20%;
+  z-index: 6;
+}
+
+.planeta-microphone::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 18%;
+  width: 5px;
+  height: 68%;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #d2d6df, #7f8797);
+}
+
+.planeta-microphone::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%, #ffffff, #aab1c1 72%);
+  box-shadow: 0 0 12px rgba(255, 248, 237, 0.18);
+}
+
+.planeta-crowd {
+  left: 0;
+  right: 0;
+  bottom: 12%;
+  height: 21%;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.planeta-crowd::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 4% 78%, #17141f 0 18px, transparent 19px),
+    radial-gradient(circle at 12% 72%, #1b1724 0 22px, transparent 23px),
+    radial-gradient(circle at 20% 80%, #17141f 0 16px, transparent 17px),
+    radial-gradient(circle at 30% 70%, #1c1825 0 24px, transparent 25px),
+    radial-gradient(circle at 40% 82%, #17141f 0 17px, transparent 18px),
+    radial-gradient(circle at 50% 70%, #1d1926 0 24px, transparent 25px),
+    radial-gradient(circle at 60% 80%, #17141f 0 16px, transparent 17px),
+    radial-gradient(circle at 70% 72%, #1b1724 0 22px, transparent 23px),
+    radial-gradient(circle at 80% 82%, #17141f 0 17px, transparent 18px),
+    radial-gradient(circle at 90% 70%, #1d1926 0 24px, transparent 25px),
+    radial-gradient(circle at 98% 79%, #17141f 0 16px, transparent 17px);
+  opacity: 0.96;
+}
+
+.planeta-crowd::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12%;
+  height: 18%;
+  background:
+    radial-gradient(circle at 18% 40%, rgba(255, 122, 158, 0.22) 0 2px, transparent 3px),
+    radial-gradient(circle at 37% 56%, rgba(255, 184, 107, 0.22) 0 2px, transparent 3px),
+    radial-gradient(circle at 54% 44%, rgba(255, 248, 237, 0.18) 0 2px, transparent 3px),
+    radial-gradient(circle at 72% 52%, rgba(126, 215, 255, 0.22) 0 2px, transparent 3px);
+}
+
+.planeta-grass {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 13%;
+  background:
+    linear-gradient(180deg, rgba(88, 134, 92, 0.14), transparent 18%),
+    linear-gradient(180deg, #2f4d34, #253829);
+  z-index: 1;
+}
 @media (max-width: 360px) {
   .scene-stage {
     min-height: 440px;
