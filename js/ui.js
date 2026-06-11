@@ -6,6 +6,7 @@ let currentPhase = null;
 let currentMemoryObject = null;
 let currentDialogueIndex = 0;
 let resetTimer = null;
+let typewriterRunId = 0;
 
 const dom = {};
 
@@ -125,6 +126,9 @@ export function renderStart() {
 }
 
 function renderMap() {
+  currentPhase = null;
+  typewriterRunId += 1;
+
   const state = deps.State.getState();
 
   dom.completedCount.textContent = state.completedPhases.length;
@@ -156,6 +160,7 @@ function renderMap() {
   });
 
   renderFragmentsGrid(dom.fragmentPreviewGrid);
+  setAudioButtonsState();
 }
 
 function renderSceneElements(phase) {
@@ -259,6 +264,8 @@ function refreshHotspotStates() {
 }
 
 function renderPhase(phaseId) {
+  typewriterRunId += 1;
+
   const phase = getPhaseById(phaseId);
 
   if (!phase || phase.available === false || phase.isFinal) {
@@ -286,6 +293,8 @@ function renderPhase(phaseId) {
 }
 
 function renderFragmentScreen(fragment) {
+  typewriterRunId += 1;
+
   dom.fragmentTitle.textContent = fragment.title || "Fragmento desbloqueado";
   dom.fragmentDescription.textContent =
     fragment.description || "Você encontrou mais um pedaço dessa história.";
@@ -313,48 +322,126 @@ function renderFinalScreen() {
   }
 
   currentPhase = finalPhase;
+  typewriterRunId += 1;
+
+  const runId = typewriterRunId;
 
   renderFragmentsGrid(dom.finalFragmentComposition);
 
+  dom.finalLetterContent.innerHTML = "";
+
   const letter = finalPhase.letter;
-  let letterHtml = "";
+  let letterTitle = "";
+  let paragraphs = [];
 
   if (Array.isArray(letter)) {
-    letterHtml = letter
-      .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
-      .join("");
+    paragraphs = letter;
   } else if (letter && typeof letter === "object") {
-    const title = letter.title ? `<h3>${escapeHtml(letter.title)}</h3>` : "";
-    const paragraphs = Array.isArray(letter.paragraphs)
-      ? letter.paragraphs
-      : [];
-
-    letterHtml = [
-      title,
-      ...paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`),
-    ].join("");
+    letterTitle = letter.title || "";
+    paragraphs = Array.isArray(letter.paragraphs) ? letter.paragraphs : [];
   }
 
-  const musicButtonHtml = finalPhase.musicUrl
-    ? `
-      <a
-        class="primary-button final-music-button"
-        href="${escapeHtml(finalPhase.musicUrl)}"
-        target="_blank"
-        rel="noopener noreferrer"
-        style="display: flex; align-items: center; justify-content: center; text-decoration: none; margin-top: 18px;"
-      >
-        🎵 Ouvir a música
-      </a>
-    `
-    : "";
+  if (letterTitle) {
+    const titleElement = document.createElement("h3");
+    titleElement.textContent = letterTitle;
+    dom.finalLetterContent.appendChild(titleElement);
+  }
 
-  dom.finalLetterContent.innerHTML = `${letterHtml}${musicButtonHtml}`;
+  const letterTextContainer = document.createElement("div");
+  letterTextContainer.className = "final-letter-typewriter";
+  dom.finalLetterContent.appendChild(letterTextContainer);
+
+  const musicButton = document.createElement("a");
+  musicButton.className = "primary-button final-music-button";
+  musicButton.href = finalPhase.musicUrl || "#";
+  musicButton.target = "_blank";
+  musicButton.rel = "noopener noreferrer";
+  musicButton.textContent = "🎵 Ouvir a música";
+  musicButton.style.display = "none";
+  musicButton.style.alignItems = "center";
+  musicButton.style.justifyContent = "center";
+  musicButton.style.textDecoration = "none";
+  musicButton.style.marginTop = "18px";
+
+  if (finalPhase.musicUrl) {
+    dom.finalLetterContent.appendChild(musicButton);
+  }
 
   deps.Audio.setTrack(finalPhase.audio?.src || "");
   setAudioButtonsState();
 
   deps.Router.showScreen("final");
+
+  typewriterLetter(paragraphs, letterTextContainer, musicButton, runId);
+}
+
+async function typewriterLetter(paragraphs, container, musicButton, runId) {
+  const typingSpeed = 18;
+  const paragraphDelay = 400;
+
+  container.innerHTML = "";
+
+  if (musicButton) {
+    musicButton.style.display = "none";
+  }
+
+  const wait = (ms) =>
+    new Promise((resolve) => {
+      window.setTimeout(resolve, ms);
+    });
+
+  const cursor = document.createElement("span");
+  cursor.className = "typewriter-cursor";
+  cursor.textContent = "|";
+  cursor.style.display = "inline-block";
+  cursor.style.marginLeft = "2px";
+
+  let cursorVisible = true;
+  const cursorBlink = window.setInterval(() => {
+    cursor.style.opacity = cursorVisible ? "0" : "1";
+    cursorVisible = !cursorVisible;
+  }, 420);
+
+  for (const paragraph of paragraphs) {
+    if (runId !== typewriterRunId) {
+      window.clearInterval(cursorBlink);
+      cursor.remove();
+      return;
+    }
+
+    const paragraphElement = document.createElement("p");
+    const textNode = document.createTextNode("");
+
+    paragraphElement.appendChild(textNode);
+    paragraphElement.appendChild(cursor);
+    container.appendChild(paragraphElement);
+
+    const text = String(paragraph || "");
+
+    for (const character of text) {
+      if (runId !== typewriterRunId) {
+        window.clearInterval(cursorBlink);
+        cursor.remove();
+        return;
+      }
+
+      textNode.textContent += character;
+      await wait(typingSpeed);
+    }
+
+    if (cursor.parentNode === paragraphElement) {
+      paragraphElement.removeChild(cursor);
+    }
+
+    await wait(paragraphDelay);
+  }
+
+  window.clearInterval(cursorBlink);
+  cursor.remove();
+
+  if (musicButton && runId === typewriterRunId) {
+    musicButton.style.display = "flex";
+  }
 }
 
 function openMemory(object) {
@@ -452,6 +539,7 @@ function confirmReset() {
 
   closeResetModal();
   currentPhase = null;
+  typewriterRunId += 1;
 
   renderStart();
   deps.Router.showScreen("start");
