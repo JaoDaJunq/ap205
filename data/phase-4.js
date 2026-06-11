@@ -91,4 +91,9 @@ export const PHASE_4 = {
     },
   ],
   fragment: {
-    i
+    id: "fragment-4",
+    index: 3,
+    title: "Fragmento 4 de 4",
+    description: "O último pedaço. Aquela noite que foi nossa.",
+  },
+};
