@@ -111,16 +111,16 @@ export const PHASE_4 = {
       label: "A Multidão",
       required: true,
       position: {
-        x: 7,
-        y: 57,
-        width: 86,
-        height: 24,
+        x: 4,
+        y: 52,
+        width: 92,
+        height: 32,
       },
       memory: {
         type: "narration",
         title: "A Multidão",
         text:
-          "Todo mundo cantando junto. A gente no meio de tudo aquilo, mas era como se fosse só a gente dois.",
+          "Tinha gente pra todo lado, luz piscando, celular gravando, todo mundo cantando. E mesmo no meio daquela multidão inteira, parecia que aquele momento era só nosso.",
       },
     },
     {
@@ -139,31 +139,35 @@ export const PHASE_4 = {
         lines: [
           {
             speaker: "Alice",
-            text: "Que lindo",
+            text: "Te dei o ingresso porque tu nunca tinha ido no Planeta.",
           },
           {
             speaker: "João",
-            text: "É",
+            text: "É... e tu sabia que eu nem era muito desses eventos né kkkkk",
           },
           {
             speaker: "Alice",
-            text: "Tô feliz demais",
+            text: "Eu sabia. Mas eu gosto muito daqui.",
           },
           {
             speaker: "João",
-            text: "Eu também",
+            text: "Eu fui por ti.",
           },
           {
             speaker: "Alice",
-            text: "Obrigada por ter trazido",
+            text: "E aí? Valeu a pena?",
           },
           {
             speaker: "João",
-            text: "Obrigada por ter vindo",
+            text: "Tá... talvez tenha sido absurdo de bom.",
+          },
+          {
+            speaker: "Alice",
+            text: "Eu sabia KAKAKAK",
           },
         ],
         conclusion:
-          "Alguns momentos a gente não esquece nunca. Esse é um deles.",
+          "Ela me deu o ingresso de aniversário, me levou pra um lugar que ela amava e, no fim, fez eu guardar aquela noite como uma das mais especiais da minha vida.",
       },
     },
     {
@@ -197,7 +201,7 @@ export const PHASE_4 = {
         type: "narration",
         title: "O Microfone",
         text:
-          "Subir naquele palco com ela foi uma das coisas mais especiais que já vivi. A música tocando, a multidão lá embaixo, ela do lado. Aquele momento foi nosso.",
+          "Aí veio o caos perfeito: o Vitor Kley passou o microfone pra ela, ela levou um susto, gritou porque não sabia a letra da música e pronto... o momento foi parar em transmissão, story, reel e provavelmente até em celular de gente que a gente nunca vai conhecer. Engraçado, aleatório e perfeito. Do jeitinho que vira memória pra vida inteira.",
       },
     },
   ],
